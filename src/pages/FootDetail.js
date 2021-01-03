@@ -35,8 +35,9 @@ function FootDetail({route}) {
         </ImageBackground>
         <View style={foot_detail.detail}>
             <Text style={foot_detail.title}>{footDetail.strMeal}</Text>
-          </View>
-       <Text>{footDetail.strInstructions}</Text>
+            <Text>{footDetail.strInstructions}</Text>
+            </View>
+       
   
      </ScrollView>
   );
