@@ -4,25 +4,26 @@ import {SafeAreaView, View, FlatList} from 'react-native';
 import {FootCategoriesCard} from '../components';
 import {main} from '../styles/pages_styles';
 
-const api_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+const api_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
 
 function FootCategories(props) {
   const [footCategoriesList, setFootCategoriesList] = useState([]);
 
   function fetchData() {
     axios
-      .get(api_url)
+      .get(api_url+props.route.params.strCategory)
       .then((response) => setFootCategoriesList(response.data.meals));
+      
   }
 
   useEffect(() => {
     fetchData();
-  }, [footCategoriesList]);
+  }, []);
  
   const renderJob = ({item}) => (
     <FootCategoriesCard
       foot={item}
-      onSelect={() => props.navigation.navigate('Detail', {idCategory: item.idMeal})}
+      onSelect={() => props.navigation.navigate('Detail', {idMeal: item.idMeal})}
     />
   );
 

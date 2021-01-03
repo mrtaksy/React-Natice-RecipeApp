@@ -17,7 +17,8 @@ function FootDetail({route}) {
     const response = await axios.get(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`,
     );
-    setFootDetail(response.data.meals);
+
+    setFootDetail(response.data.meals[0]);
 
   }
 
@@ -35,7 +36,7 @@ function FootDetail({route}) {
         <View style={foot_detail.detail}>
             <Text style={foot_detail.title}>{footDetail.strMeal}</Text>
           </View>
-       <Text>{footDetail.description}</Text>
+       <Text>{footDetail.strInstructions}</Text>
   
      </ScrollView>
   );

@@ -18,13 +18,12 @@ function FootList(props) {
 
   useEffect(() => {
     fetchData();
-  }, [footList]);
+  }, []);
  
   const renderJob = ({item}) => (
     <FootItem
       foot={item}
-     // onSelect={() => props.navigation.navigate('FootCatgories', {idCategory: item.idCategory})}
-      onSelect={() => props.navigation.navigate('Detail', {idCategory: item.idCategory})}
+      onSelect={() => props.navigation.navigate('Kategori', {strCategory: item.strCategory})}
     />
   );
 
